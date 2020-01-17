@@ -57,7 +57,7 @@ a {
   padding: 1.5rem;
   font-size: 1.4;
   font-weight: 400;
-  border-radius: .5rem;
+  /* border-radius: .5rem; */
   border: none;
   transition: background-color .3s ease;
 }
@@ -115,7 +115,7 @@ aside  {
 }
 .formulario-nuevo-proyecto .input-text {
   border-bottom: 1px solid var(--gris2);
-  border-radius: 0;
+  /* border-radius: 0; */
   background-color: var(--gris1);
 }
 .formulario-nuevo-proyecto .input-text::placeholder{
@@ -174,7 +174,7 @@ aside  {
 .input-text {
   padding: 1rem;
   border: none;
-  border-radius: .5rem;
+  /* border-radius: .5rem; */
   flex: 1;
   width: 100%;
 }
@@ -198,7 +198,7 @@ aside  {
   padding: .5rem 2rem;
   align-items: center;
   margin-bottom: 1rem;
-  border-radius: .5rem;
+  /* border-radius: .5rem; */
 
 }
 .sombra {
@@ -222,7 +222,7 @@ aside  {
 .tarea .btn {
   padding: .8rem;
   font-size:1.4rem;
-  border-radius: 0;
+  /* border-radius: 0; */
   margin: 0;
 }
 
@@ -235,14 +235,14 @@ aside  {
   font-family: var(--textFont);
   font-size: 1rem;
   padding: .5rem;
-  border-radius: .5rem;
+  /* border-radius: .5rem; */
   cursor: pointer;
   border: none;
 }
 .mensaje {
   text-align: center;
   font-size: 1.6rem;
-  border-radius: 0;
+  /* border-radius: 0; */
 }
 .mensaje:hover {
   cursor: default;
@@ -298,7 +298,7 @@ aside  {
     max-width: 500px;
     width: 95%;
     background-color: var(--blanco);
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
 }
 
 .campo-form {
