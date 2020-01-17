@@ -1,16 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const Login = () => {
 
-    const _handleChange = () => {
+    //State
+    const [usuario, guardarUsuario] = useState({
+        email: '',
+        password: ''
+    });
+    const {email, password} = usuario;
+
+
+    //Métodos
+    const _handleChange = e => {
+        //setState
+        guardarUsuario({
+            ...usuario,
+            [e.target.name] : e.target.value
+        })
+       
+    }
+    const _handleSubmit = e => {
+        e.preventDefault();
+        //validar
+
+        //pasar info al action
+        
 
     }
+
+
 
     return(
         <div className="form-usuario">
             <div className="contenedor-form sombra-dark">
                 <h1>Iniciar sesión</h1>
-                <form>
+                <form 
+                    onSubmit={_handleSubmit}
+                >
                     <div className="campo-form">
                         <label htmlFor="email">Email</label>
                         <input
@@ -18,6 +45,7 @@ const Login = () => {
                             id="email"
                             name="email"
                             placeholder="Email"
+                            value={email}
                             onChange={_handleChange}
                         />
                     </div>
@@ -28,6 +56,7 @@ const Login = () => {
                             id="password"
                             name="password"
                             placeholder="Password"
+                            value={password}
                             onChange={_handleChange}
                         />
                     </div>
@@ -39,6 +68,9 @@ const Login = () => {
                         />
                     </div>
                 </form>
+                <Link to={'nueva-cuenta'} className="enlace-cuenta">
+                    Crear una cuenta
+                </Link>
             </div>
         </div>
     );
