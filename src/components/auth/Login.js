@@ -22,7 +22,7 @@ const Login = () => {
     }
     const _handleSubmit = e => {
         e.preventDefault();
-        //validar
+        //validar formulario
 
         //pasar info al action
         
@@ -68,7 +68,7 @@ const Login = () => {
                         />
                     </div>
                 </form>
-                <Link to={'nueva-cuenta'} className="enlace-cuenta">
+                <Link to={'/nueva-cuenta'} className="enlace-cuenta">
                     Crear una cuenta
                 </Link>
             </div>
