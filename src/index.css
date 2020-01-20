@@ -65,11 +65,11 @@ a {
 .btn:hover {
   cursor: pointer;
 }
-.btn-primario {
+.btn-primary {
   background-color: var(--gris2);
   color: var(--blanco);
 }
-.btn-primario:hover {
+.btn-primary:hover {
   background: var(--gris3);
 }
 .btn-secundario {
@@ -111,15 +111,15 @@ aside  {
   padding: 3rem;
 }
 
-.formulario-nuevo-proyecto {
+.new-project-form {
   margin-top: 6rem;
 }
-.formulario-nuevo-proyecto .input-text {
+.new-project-form .input-text {
   border-bottom: 1px solid var(--gris2);
   /* border-radius: 0; */
   background-color: var(--gris1);
 }
-.formulario-nuevo-proyecto .input-text::placeholder{
+.new-project-form .input-text::placeholder{
   color: var(--gris2);
 }
 .proyects {
