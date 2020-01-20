@@ -1,9 +1,19 @@
 import React from 'react';
+import Sidebar from './../layout/Sidebar';
 
 const Proyectos = () => {
 
     return(
-        <h1>desde proyectos</h1>
+        <div className="proyects-container">
+            <Sidebar />
+            <div className="main-container">
+                <main>
+                    <div className="tasks-container">
+                        
+                    </div>     
+                </main>
+            </div>
+        </div>
     );
 }
 

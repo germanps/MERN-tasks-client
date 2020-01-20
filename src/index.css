@@ -33,6 +33,7 @@ h1, h2 {
 }
 h1 span {
   font-weight: 400;
+  font-style: italic;
 }
 h1 {
   font-size: 3rem;
@@ -89,7 +90,7 @@ a {
 }
 
 @media (min-width: 768px) {
-  .contenedor-app {
+  .proyects-container {
       display: flex;
       min-height: 100vh;
   }
@@ -98,7 +99,7 @@ a {
       background-color: var(--blanco);
       flex: 0 0 300px;
   }
-  .seccion-principal {
+  .main-container {
       flex: 1;
   }
 
@@ -121,7 +122,7 @@ aside  {
 .formulario-nuevo-proyecto .input-text::placeholder{
   color: var(--gris2);
 }
-.proyectos {
+.proyects {
   margin-top: 10rem;
 }
 .listado-proyectos li {
@@ -180,7 +181,7 @@ aside  {
 }
 
 /** TAREAS LISTADO **/
-.contenedor-tareas {
+.tasks-container {
   padding: 4rem;
 }
 
@@ -287,7 +288,7 @@ aside  {
 .form-usuario {
     background-color: var(--gris2);
     height: 100vh;
-    min-height: 800px;
+    /*min-height: 800px;*/
     display: flex;
     align-items: center;
     justify-content: center;
