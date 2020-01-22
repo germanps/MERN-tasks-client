@@ -3,7 +3,7 @@ import React from 'react';
 const Tarea = ({tarea}) => {
     return(
         <li className="tarea sombra">
-            <div>{tarea.nombre}</div>
+            <p>{tarea.nombre}</p>
             <div className="estado">
                 {tarea.estado
                     ?   <button
@@ -19,7 +19,11 @@ const Tarea = ({tarea}) => {
             <div className="acciones">
                 <button 
                     type="button"
-                    className="btn bnt-primario"
+                    className="btn btn-primary"
+                >Editar</button>
+                <button 
+                    type="button"
+                    className="btn btn-secundary"
                 >Eliminar</button>
             </div>
         </li>

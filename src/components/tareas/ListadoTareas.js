@@ -22,6 +22,9 @@ const ListadoTareas = () => {
                     ))
                 }
             </ul>
+            <button className="btn btn-eliminar" type="button">
+                Eliminar proyecto
+            </button>
         </div>
     );
 }
