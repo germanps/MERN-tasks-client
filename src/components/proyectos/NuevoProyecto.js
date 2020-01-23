@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ProyectoContext from "./../../context/proyectos/proyectoContext";
 
 const NuevoProyecto = () => {
+    //obtener state del formulario
+    const proyectosContext = useContext(ProyectoContext);
+    const { formulario, mostrarFormulario } = proyectosContext;
 
     //State
     const [proyecto, guardarProyecto] = useState({
@@ -24,27 +28,31 @@ const NuevoProyecto = () => {
             <button
                 type="button"
                 className="btn btn-block btn-primary"
+                onClick={mostrarFormulario}
             >
                 Nuevo Proyecto
             </button>
-            <form 
-                className="new-project-form"
-                onSubmit={_handleSubmit}
-            >
-                <input
-                    type="text"
-                    className="input-text"
-                    placeholder="Nombre proyecto"
-                    name="nombre"
-                    onChange={_handleChange}
-                    value={nombre}
-                />
-                <input
-                    type="submit"
-                    className="btn btn-primary btn-block"
-                    value="Agregar proyecto"
-                />
-            </form>
+            {formulario ? 
+                <form 
+                    className="new-project-form"
+                    onSubmit={_handleSubmit}
+                >
+                    <input
+                        type="text"
+                        className="input-text"
+                        placeholder="Nombre proyecto"
+                        name="nombre"
+                        onChange={_handleChange}
+                        value={nombre}
+                    />
+                    <input
+                        type="submit"
+                        className="btn btn-primary btn-block"
+                        value="Agregar proyecto"
+                    />
+                </form>
+                : null
+            }
         </div>
     )
 }

@@ -12,7 +12,7 @@ const Listado = () => {
     return(
         <ul className="listado-proyectos">
             {proyectos.map((proyecto, index) => (
-                <Proyecto proyecto={proyecto} />
+                <Proyecto proyecto={proyecto} key={index}/>
             ))}
         </ul>
     );
