@@ -4,6 +4,8 @@
   --gris2: #2f3848;
   --gris3: #1a202d;
   --negro: #000000;
+  --lightGreen: #49732c;
+  --lightRed: #e47644;
   --headingFont:'Raleway', sans-serif;
   --textFont:  'Roboto', sans-serif;
 }
@@ -74,6 +76,10 @@ a {
 }
 .btn-secundario {
   background-color: var(--gris1);
+}
+.btn-lightGreen{
+  background-color: var(--lightGreen);
+  color: var(--blanco);
 }
 .btn-block {
   display: block;
@@ -250,12 +256,12 @@ aside  {
 }
 .completo,
 .correcto {
-  background-color: rgba(154, 252, 154, .3);
-  color: var(--gris3);
+  background-color: var(--lightGreen);
+  color: var(--blanco);
 }
 .incompleto{
-  background-color: rgba(255, 178, 178, .4);
-  color: var(--gris3);
+  background-color: var(--lightRed);
+  color: var(--blanco);
 }
 .error {
   max-width: 600px;

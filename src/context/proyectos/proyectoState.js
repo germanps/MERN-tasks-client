@@ -4,13 +4,15 @@ import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
 import { 
     FORMULARIO_PROYECTO,
-    OBTENER_PROYECTOS 
+    OBTENER_PROYECTOS,
+    AGREGAR_PROYECTO,
+    VALIDAR_FORMULARIO
 } from './../../types';
 
-
-
+import { randomID } from './../../commons/utils';
 
 const ProyectoState = props => {
+
     const proyectos = [
         { id: 1, nombre: "DmgMori" },
         { id: 2, nombre: "Pasiona producto" },
@@ -19,7 +21,8 @@ const ProyectoState = props => {
     ]
     const initialState = {
         proyectos: [],
-        formulario :  false
+        formulario :  false,
+        errorFormulario: false
     }
 
     //dispatch para ejecutar las acciones
@@ -41,6 +44,25 @@ const ProyectoState = props => {
         })
     }
 
+    //Agregar nuevo proyecto
+    const agregarProyecto = proyecto => {
+        //recibe el proyecto y le inserta un ID
+        proyecto.id = randomID();
+
+        // insertar el proyecto en el state
+        dispatch({
+            type: AGREGAR_PROYECTO,
+            payload: proyecto
+        })
+    }
+
+    // Validar formulario
+    const mostrarError = () => {
+        dispatch({
+            type: VALIDAR_FORMULARIO
+        });
+    }
+
 
 
     return(
@@ -48,8 +70,11 @@ const ProyectoState = props => {
             value={{
                 proyectos: state.proyectos,
                 formulario: state.formulario,
+                errorFormulario: state.errorFormulario,
                 mostrarFormulario,
-                obtenerProyectos
+                obtenerProyectos,
+                agregarProyecto,
+                mostrarError
             }}
         >
             {props.children}
