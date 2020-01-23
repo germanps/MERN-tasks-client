@@ -6,7 +6,8 @@ import {
     FORMULARIO_PROYECTO,
     OBTENER_PROYECTOS,
     AGREGAR_PROYECTO,
-    VALIDAR_FORMULARIO
+    VALIDAR_FORMULARIO,
+    PROYECTO_ACTUAL
 } from './../../types';
 
 import { randomID } from './../../commons/utils';
@@ -22,7 +23,8 @@ const ProyectoState = props => {
     const initialState = {
         proyectos: [],
         formulario :  false,
-        errorFormulario: false
+        errorFormulario: false,
+        proyectoActivo: null
     }
 
     //dispatch para ejecutar las acciones
@@ -63,6 +65,13 @@ const ProyectoState = props => {
         });
     }
 
+    // selecciona el proyecto activo
+    const proyectoActual = proyectoId =>{
+        dispatch({
+            type: PROYECTO_ACTUAL,
+            payload: proyectoId
+        });
+    }
 
 
     return(
@@ -71,10 +80,12 @@ const ProyectoState = props => {
                 proyectos: state.proyectos,
                 formulario: state.formulario,
                 errorFormulario: state.errorFormulario,
+                proyectoActivo: state.proyectoActivo,
                 mostrarFormulario,
                 obtenerProyectos,
                 agregarProyecto,
-                mostrarError
+                mostrarError,
+                proyectoActual
             }}
         >
             {props.children}
