@@ -2,10 +2,23 @@ import React, { useReducer } from 'react';
 
 import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
-import { FORMULARIO_PROYECTO } from './../../types';
+import { 
+    FORMULARIO_PROYECTO,
+    OBTENER_PROYECTOS 
+} from './../../types';
+
+
+
 
 const ProyectoState = props => {
+    const proyectos = [
+        { id: 1, nombre: "DmgMori" },
+        { id: 2, nombre: "Pasiona producto" },
+        { id: 3, nombre: "Tunels" },
+        { id: 4, nombre: "AMV" }
+    ]
     const initialState = {
+        proyectos: [],
         formulario :  false
     }
 
@@ -20,13 +33,23 @@ const ProyectoState = props => {
     }
    
 
+    //Obtener proyectos
+    const obtenerProyectos = () => {
+        dispatch({
+            type: OBTENER_PROYECTOS,
+            payload: proyectos
+        })
+    }
+
 
 
     return(
         <ProyectoContext.Provider
             value={{
+                proyectos: state.proyectos,
                 formulario: state.formulario,
-                mostrarFormulario
+                mostrarFormulario,
+                obtenerProyectos
             }}
         >
             {props.children}
