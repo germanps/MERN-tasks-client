@@ -10,7 +10,7 @@ const FormTarea = () => {
 
     //extrae de tareas
     const tareasContext = useContext(tareaContext);
-    const { agregarTarea } = tareasContext;
+    const { agregarTarea, validarTarea, errorTarea, obtenerTareas } = tareasContext;
 
     //state del formulario
     const [tarea, guardarTarea] = useState({
@@ -34,6 +34,10 @@ const FormTarea = () => {
     const _handleSubmit = e => {
         e.preventDefault();
         //validar
+        if(nombre.trim() === ''){
+            validarTarea();
+            return;
+        }
 
         //pasar validacion
 
@@ -43,7 +47,13 @@ const FormTarea = () => {
         console.log(tarea);
         agregarTarea(tarea);
 
+        //volver a imprimir todas las tareas (con la nueva incluida)
+        obtenerTareas(proyectoActivo[0].id);
+
         //reiniciar form
+        guardarTarea({
+            nombre: ''
+        })
     }
 
     return(
@@ -69,6 +79,7 @@ const FormTarea = () => {
                     />
                 </div>
             </form>
+            {errorTarea ? <p className="mensaje error">Nombre de tarea obligatorio</p> : null}
         </div>
     );
 }

@@ -33,6 +33,7 @@ const ProyectoState = props => {
 
     //Funciones para el CRUD
     const mostrarFormulario = () => {
+        //no toma payload ya que se actualiza mediante boleano
         dispatch({
             type: FORMULARIO_PROYECTO
         })

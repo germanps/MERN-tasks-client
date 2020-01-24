@@ -4,7 +4,8 @@ import TareaReducer from './tareaReducer';
 
 import {
     TAREAS_PROYECTO,
-    AGREGAR_TAREA
+    AGREGAR_TAREA,
+    VALIDAR_TAREA
 } from './../../types';
 
 
@@ -25,7 +26,8 @@ const TareaState = props => {
             {nombre: 'Grid sincfusion', estado: false, proyectoId: 1},
             {nombre: 'Schedule', estado: true, proyectoId: 4},
         ],
-        tareasProyectoActivo: null
+        tareasProyectoActivo: null,
+        errorTarea: false
     }
 
     //Crear dispatch y state
@@ -48,13 +50,23 @@ const TareaState = props => {
         })
     }
 
+    //Validar tarea mostrando un error
+    const validarTarea = () => {
+        //no toma payload ya que se actualiza mediante boleano
+        dispatch({
+            type: VALIDAR_TAREA
+        })
+    }
+
     return(
         <TareaContext.Provider
             value={{
                 tareas: state.tareas,
                 tareasProyectoActivo: state.tareasProyectoActivo,
+                errorTarea: state.errorTarea,
                 obtenerTareas,
-                agregarTarea
+                agregarTarea,
+                validarTarea
             }}
         >
             {props.children}
