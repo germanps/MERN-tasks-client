@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Tarea from './Tarea';
 
+import proyectoContext from './../../context/proyectos/proyectoContext';
+
 const ListadoTareas = () => {
+
+    const proyectosContext = useContext(proyectoContext);
+    const { proyectoActivo } = proyectosContext;
+
+    if(!proyectoActivo) return <h2>Selecciona un proyecto</h2>
+
     const tareas = [
         {nombre: 'Modal para las fechas', estado: true},
         {nombre: 'Grid sincfusion', estado: false},
@@ -10,7 +18,7 @@ const ListadoTareas = () => {
     ]
     return(
         <div className="listado-tareas">
-            <h2>Proyecto: DmgMori</h2>
+           <h2>Proyecto:  {proyectoActivo[0].nombre} </h2>
             <ul className="listado-tareas">
                 {tareas.length === 0 
                     ? <li className="tarea"><p>No hay tareas</p></li>
