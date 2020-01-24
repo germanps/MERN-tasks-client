@@ -1,28 +1,26 @@
 import React, {useContext} from 'react';
 import Tarea from './Tarea';
 import proyectoContext from './../../context/proyectos/proyectoContext';
+import tareaContext from './../../context/tareas/tareaContext';
 
 const ListadoTareas = () => {
 
     const proyectosContext = useContext(proyectoContext);
     const { proyectoActivo, eliminarProyecto } = proyectosContext;
 
-    if(!proyectoActivo) return <h2>Selecciona un proyecto</h2>
+    const tareasContext = useContext(tareaContext);
+    const { tareasProyectoActivo } = tareasContext;
+    console.log(tareasProyectoActivo);
 
-    const tareas = [
-        {nombre: 'Modal para las fechas', estado: true},
-        {nombre: 'Grid sincfusion', estado: false},
-        {nombre: 'Schedule', estado: true},
-        {nombre: 'After sales component', estado: false}
-    ];
+    if(!proyectoActivo) return <h2>Selecciona un proyecto</h2>
     
     return(
         <div className="listado-tareas">
            <h2>Proyecto:  {proyectoActivo[0].nombre} </h2>
             <ul className="listado-tareas">
-                {tareas.length === 0 
+                {tareasProyectoActivo.length === 0 
                     ? <li className="tarea"><p>No hay tareas</p></li>
-                    : tareas.map((tarea, index) => (
+                    : tareasProyectoActivo.map((tarea, index) => (
                         <Tarea
                             tarea={tarea}
                             key={index}
