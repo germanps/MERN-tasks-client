@@ -1,6 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import proyectoContext from './../../context/proyectos/proyectoContext';
 
 const FormTarea = () => {
+
+    //extraer si un proyecto esta activo
+    const proyectosContext = useContext(proyectoContext);
+    const { proyectoActivo } = proyectosContext;
+
+    //si no hay proyecto seleccionado no retornamos nada
+    if(!proyectoActivo) return null;
 
     const _handleSubmit = e => {
         e.preventDefault();
