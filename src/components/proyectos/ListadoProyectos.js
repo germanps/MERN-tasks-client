@@ -12,7 +12,7 @@ const Listado = () => {
         obtenerProyectos();
     }, []);
 
-    if(proyectos === null || proyectos.length === 0) return null;//si no hay proyectos(primera carga del programa)
+    if(proyectos === null || proyectos.length === 0) return <span>No hay proyectos creados</span>;//si no hay proyectos(primera carga del programa)
 
     return(
         <ul className="listado-proyectos">

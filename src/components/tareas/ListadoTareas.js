@@ -5,7 +5,7 @@ import proyectoContext from './../../context/proyectos/proyectoContext';
 const ListadoTareas = () => {
 
     const proyectosContext = useContext(proyectoContext);
-    const { proyectoActivo } = proyectosContext;
+    const { proyectoActivo, eliminarProyecto } = proyectosContext;
 
     if(!proyectoActivo) return <h2>Selecciona un proyecto</h2>
 
@@ -14,7 +14,8 @@ const ListadoTareas = () => {
         {nombre: 'Grid sincfusion', estado: false},
         {nombre: 'Schedule', estado: true},
         {nombre: 'After sales component', estado: false}
-    ]
+    ];
+    
     return(
         <div className="listado-tareas">
            <h2>Proyecto:  {proyectoActivo[0].nombre} </h2>
@@ -29,7 +30,11 @@ const ListadoTareas = () => {
                     ))
                 }
             </ul>
-            <button className="btn btn-eliminar" type="button">
+            <button 
+                className="btn btn-eliminar" 
+                type="button"
+                onClick={() => eliminarProyecto(proyectoActivo[0].id)}
+            >
                 Eliminar proyecto
             </button>
         </div>
