@@ -10,7 +10,6 @@ const ListadoTareas = () => {
 
     const tareasContext = useContext(tareaContext);
     const { tareasProyectoActivo } = tareasContext;
-    console.log(tareasProyectoActivo);
 
     if(!proyectoActivo) return <h2>Selecciona un proyecto</h2>
     

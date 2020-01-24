@@ -3,7 +3,8 @@ import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
 
 import {
-    TAREAS_PROYECTO
+    TAREAS_PROYECTO,
+    AGREGAR_TAREA
 } from './../../types';
 
 
@@ -36,6 +37,14 @@ const TareaState = props => {
         dispatch({
             type: TAREAS_PROYECTO,
             payload: proyectoId
+        });
+    }
+
+    //Agragar tarea al proyecto seleccionado
+    const agregarTarea = tarea => {
+        dispatch({
+            type: AGREGAR_TAREA,
+            payload: tarea
         })
     }
 
@@ -44,7 +53,8 @@ const TareaState = props => {
             value={{
                 tareas: state.tareas,
                 tareasProyectoActivo: state.tareasProyectoActivo,
-                obtenerTareas
+                obtenerTareas,
+                agregarTarea
             }}
         >
             {props.children}
